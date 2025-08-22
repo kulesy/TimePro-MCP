@@ -52,6 +52,8 @@ namespace TimePro.Server.Services
 
         public async Task<TimesheetDto> CreateTimesheetAsync(TimesheetDto timesheetDto)
         {
+            _logger.LogError("Creating timesheet: {@TimesheetDto}", timesheetDto);
+
             try
             {
                 var timesheets = (await LoadTimesheetsFromFileAsync()).ToList();
@@ -152,15 +154,25 @@ namespace TimePro.Server.Services
 
         private static Timesheet ConvertFromDto(TimesheetDto dto)
         {
+            DateTime date;
+            if (string.IsNullOrWhiteSpace(dto.Date))
+            {
+                date = DateTime.Today;
+            }
+            else if (!DateTime.TryParse(dto.Date, out date))
+            {
+                date = DateTime.Today;
+            }
+
             return new Timesheet
             {
                 Id = dto.Id,
-                Date = DateTime.Parse(dto.Date),
-                Project = dto.Project,
+                Date = date,
+                Project = dto.Project ?? string.Empty,
                 Hours = dto.Hours,
-                Details = dto.Details,
-                Status = dto.Status,
-                Client = dto.Client
+                Details = dto.Details ?? string.Empty,
+                Status = dto.Status ?? "Pending",
+                Client = dto.Client ?? string.Empty
             };
         }
     }

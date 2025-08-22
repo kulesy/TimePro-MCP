@@ -10,6 +10,7 @@ A .NET 9 Web API that serves timesheet data stored in JSON format.
 - 📚 Swagger/OpenAPI documentation
 - 🌐 CORS enabled for React client
 - 📝 Comprehensive logging
+- 🤖 MCP (Model Context Protocol) support for AI client integration
 
 ## API Endpoints
 
@@ -27,6 +28,14 @@ Update an existing timesheet
 
 ### DELETE /api/timesheets/{id}
 Delete a timesheet
+
+## MCP Endpoints
+
+### POST /api/mcp/request
+Handle MCP requests for timesheet operations
+
+### GET /api/mcp/methods
+Get available MCP methods and parameters
 
 ## Getting Started
 
@@ -64,12 +73,16 @@ Timesheet data is stored in `Data/timesheets.json`. The service automatically cr
 ```
 server/
 ├── Controllers/
-│   └── TimesheetsController.cs    # API endpoints
+│   ├── TimesheetsController.cs    # REST API endpoints
+│   └── McpController.cs           # MCP API endpoints
 ├── Models/
 │   └── Timesheet.cs               # Data models and DTOs
 ├── Services/
 │   ├── ITimesheetService.cs       # Service interface
 │   └── TimesheetService.cs        # JSON data service implementation
+├── MCP/
+│   ├── McpServer.cs               # MCP server implementation
+│   └── README.md                  # MCP documentation
 ├── Data/
 │   └── timesheets.json            # JSON data storage
 ├── Properties/
@@ -90,7 +103,9 @@ The API uses:
 - **ASP.NET Core 9.0** - Web framework
 - **Swagger/OpenAPI** - API documentation
 - **Newtonsoft.Json** - JSON serialization
+- **System.Text.Json** - MCP JSON handling
 - **Dependency Injection** - Service management
 - **Structured Logging** - Error tracking and debugging
+- **MCP Protocol** - AI client integration support
 
 

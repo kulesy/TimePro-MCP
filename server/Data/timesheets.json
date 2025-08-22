@@ -70,7 +70,32 @@
     "Details": "Bug fixes and performance optimization. Resolved critical issues reported by QA team and improved application loading times.",
     "Status": "Approved",
     "Client": "Client A"
+  },
+  {
+    "Id": 9,
+    "Date": "2025-08-22T00:00:00+10:00",
+    "Project": "",
+    "Hours": 0.0,
+    "Details": "",
+    "Status": "",
+    "Client": ""
+  },
+  {
+    "Id": 10,
+    "Date": "2025-08-22T00:00:00+10:00",
+    "Project": "",
+    "Hours": 0.0,
+    "Details": "",
+    "Status": "",
+    "Client": ""
+  },
+  {
+    "Id": 11,
+    "Date": "2025-08-22T00:00:00+10:00",
+    "Project": "",
+    "Hours": 0.0,
+    "Details": "",
+    "Status": "",
+    "Client": ""
   }
 ]
-
-
