@@ -103,12 +103,26 @@ namespace TimePro.Server.MCP
         {
             try
             {
-                var timesheetData = JsonSerializer.Deserialize<TimesheetDto>(
-                    JsonSerializer.Serialize(request.Params));
-                
-                if (timesheetData == null)
+                if (request.Params == null)
                 {
-                    return CreateErrorResponse("Invalid timesheet data", 400);
+                    return CreateErrorResponse("No parameters provided", 400);
+                }
+
+                var timesheetData = new TimesheetDto
+                {
+                    Date = request.Params.GetValueOrDefault("date")?.ToString() ?? string.Empty,
+                    Project = request.Params.GetValueOrDefault("project")?.ToString() ?? string.Empty,
+                    Hours = ParseDouble(request.Params.GetValueOrDefault("hours")),
+                    Details = request.Params.GetValueOrDefault("details")?.ToString() ?? string.Empty,
+                    Status = request.Params.GetValueOrDefault("status")?.ToString() ?? string.Empty,
+                    Client = request.Params.GetValueOrDefault("client")?.ToString() ?? string.Empty
+                };
+
+                if (string.IsNullOrEmpty(timesheetData.Date) || 
+                    string.IsNullOrEmpty(timesheetData.Project) || 
+                    timesheetData.Hours <= 0)
+                {
+                    return CreateErrorResponse("Missing required fields: date, project, and hours are required", 400);
                 }
 
                 var createdTimesheet = await _timesheetService.CreateTimesheetAsync(timesheetData);
@@ -136,12 +150,27 @@ namespace TimePro.Server.MCP
 
             try
             {
-                var timesheetData = JsonSerializer.Deserialize<TimesheetDto>(
-                    JsonSerializer.Serialize(request.Params));
-                
-                if (timesheetData == null)
+                if (request.Params == null)
                 {
-                    return CreateErrorResponse("Invalid timesheet data", 400);
+                    return CreateErrorResponse("No parameters provided", 400);
+                }
+
+                var timesheetData = new TimesheetDto
+                {
+                    Id = id,
+                    Date = request.Params.GetValueOrDefault("date")?.ToString() ?? string.Empty,
+                    Project = request.Params.GetValueOrDefault("project")?.ToString() ?? string.Empty,
+                    Hours = ParseDouble(request.Params.GetValueOrDefault("hours")),
+                    Details = request.Params.GetValueOrDefault("details")?.ToString() ?? string.Empty,
+                    Status = request.Params.GetValueOrDefault("status")?.ToString() ?? string.Empty,
+                    Client = request.Params.GetValueOrDefault("client")?.ToString() ?? string.Empty
+                };
+
+                if (string.IsNullOrEmpty(timesheetData.Date) || 
+                    string.IsNullOrEmpty(timesheetData.Project) || 
+                    timesheetData.Hours <= 0)
+                {
+                    return CreateErrorResponse("Missing required fields: date, project, and hours are required", 400);
                 }
 
                 var updatedTimesheet = await _timesheetService.UpdateTimesheetAsync(id, timesheetData);
@@ -208,6 +237,35 @@ namespace TimePro.Server.MCP
             };
             
             return JsonSerializer.Serialize(response);
+        }
+
+        private double ParseDouble(object? value)
+        {
+            if (value == null) return 0.0;
+            
+            if (value is JsonElement jsonElement)
+            {
+                return jsonElement.ValueKind switch
+                {
+                    JsonValueKind.Number => jsonElement.GetDouble(),
+                    JsonValueKind.String => double.TryParse(jsonElement.GetString(), out var result) ? result : 0.0,
+                    _ => 0.0
+                };
+            }
+            
+            if (value is IConvertible convertible)
+            {
+                try
+                {
+                    return Convert.ToDouble(convertible);
+                }
+                catch
+                {
+                    return 0.0;
+                }
+            }
+            
+            return 0.0;
         }
     }
 

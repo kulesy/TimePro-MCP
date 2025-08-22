@@ -1,101 +1,20 @@
 [
   {
     "Id": 1,
-    "Date": "2024-01-15T00:00:00",
-    "Project": "Project Alpha",
-    "Hours": 8.5,
-    "Details": "Worked on frontend development and user interface improvements. Implemented new login functionality and updated styling according to design specifications.",
-    "Status": "Approved",
-    "Client": "Client A"
+    "Date": "2025-01-22T00:00:00",
+    "Project": "TimePro MCP Client Development",
+    "Hours": 4.0,
+    "Details": "Worked on SSWConsulting/Brainstorming.Demonstration.TimeProMCP repository including initial project setup, blog layout design and implementation, blog post creation, and layout refinements. Commits include: first commit, Init, My first blog post, Created a new blog layout, Refined the layout as per discussions, and merge pull requests for blog layout and first post.",
+    "Status": "Pending",
+    "Client": "TimePro"
   },
   {
     "Id": 2,
-    "Date": "2024-01-14T00:00:00",
-    "Project": "Project Beta",
-    "Hours": 7.0,
-    "Details": "Backend API development and database optimization. Fixed critical bugs in user authentication system and improved response times.",
+    "Date": "2025-01-22T00:00:00",
+    "Project": "Northwind Development",
+    "Hours": 4.0,
+    "Details": "General development and maintenance work on Northwind project including code reviews, bug fixes, and feature development tasks.",
     "Status": "Pending",
-    "Client": "Client B"
-  },
-  {
-    "Id": 3,
-    "Date": "2024-01-13T00:00:00",
-    "Project": "Project Gamma",
-    "Hours": 6.5,
-    "Details": "Code review and testing phase. Conducted thorough testing of new features and provided feedback on pull requests.",
-    "Status": "Approved",
-    "Client": "Client C"
-  },
-  {
-    "Id": 4,
-    "Date": "2024-01-12T00:00:00",
-    "Project": "Project Alpha",
-    "Hours": 8.0,
-    "Details": "Meeting with stakeholders and project planning. Discussed requirements for upcoming sprint and allocated resources.",
-    "Status": "Approved",
-    "Client": "Client A"
-  },
-  {
-    "Id": 5,
-    "Date": "2024-01-11T00:00:00",
-    "Project": "Project Delta",
-    "Hours": 5.5,
-    "Details": "Documentation and technical writing. Created comprehensive user manuals and API documentation for the new system.",
-    "Status": "Pending",
-    "Client": "Client D"
-  },
-  {
-    "Id": 6,
-    "Date": "2024-01-10T00:00:00",
-    "Project": "Project Beta",
-    "Hours": 7.5,
-    "Details": "Database migration and system maintenance. Updated server configurations and performed routine security updates.",
-    "Status": "Rejected",
-    "Client": "Client B"
-  },
-  {
-    "Id": 7,
-    "Date": "2024-01-09T00:00:00",
-    "Project": "Project Gamma",
-    "Hours": 8.0,
-    "Details": "Feature development and integration testing. Implemented new reporting functionality and integrated with external APIs.",
-    "Status": "Approved",
-    "Client": "Client C"
-  },
-  {
-    "Id": 8,
-    "Date": "2024-01-08T00:00:00",
-    "Project": "Project Alpha",
-    "Hours": 6.0,
-    "Details": "Bug fixes and performance optimization. Resolved critical issues reported by QA team and improved application loading times.",
-    "Status": "Approved",
-    "Client": "Client A"
-  },
-  {
-    "Id": 9,
-    "Date": "2025-08-22T00:00:00+10:00",
-    "Project": "",
-    "Hours": 0.0,
-    "Details": "",
-    "Status": "",
-    "Client": ""
-  },
-  {
-    "Id": 10,
-    "Date": "2025-08-22T00:00:00+10:00",
-    "Project": "",
-    "Hours": 0.0,
-    "Details": "",
-    "Status": "",
-    "Client": ""
-  },
-  {
-    "Id": 11,
-    "Date": "2025-08-22T00:00:00+10:00",
-    "Project": "",
-    "Hours": 0.0,
-    "Details": "",
-    "Status": "",
-    "Client": ""
+    "Client": "Northwind"
   }
 ]

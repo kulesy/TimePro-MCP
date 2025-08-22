@@ -52,8 +52,8 @@ namespace TimePro.Server.Services
 
         public async Task<TimesheetDto> CreateTimesheetAsync(TimesheetDto timesheetDto)
         {
-            _logger.LogError("Creating timesheet: {@TimesheetDto}", timesheetDto);
-
+            _logger.LogError("Creating timesheet - Date: {Date}, Project: {Project}, Hours: {Hours}, Details: {Details}, Status: {Status}, Client: {Client}", 
+                            timesheetDto.Date, timesheetDto.Project, timesheetDto.Hours, timesheetDto.Details, timesheetDto.Status, timesheetDto.Client);
             try
             {
                 var timesheets = (await LoadTimesheetsFromFileAsync()).ToList();
